@@ -1,0 +1,2 @@
+{"agent":{"id":"001"},"data":{"win":{"system":{"channel":"Microsoft-Windows-Sysmon/Operational","eventID":"1","eventRecordID":"1","systemTime":"2026-10-31T01:00:00Z"},"eventdata":{"processGuid":"{synthetic-process}","image":"C:\\Windows\\notepad.exe"}}}}
+{"agent":{"id":"001"},"data":{"win":{"system":{"channel":"Microsoft-Windows-Sysmon/Operational","eventID":"11","eventRecordID":"2","systemTime":"2026-10-31T01:00:01Z"},"eventdata":{"processGuid":"{synthetic-process}","targetFilename":"C:\\Temp\\synthetic-marker.txt"}}}}

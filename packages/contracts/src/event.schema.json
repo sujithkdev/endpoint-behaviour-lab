@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:endpoint:event:1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version","event_id","device_id","manager_id","source","channel","source_event_id","source_generation","identity_quality","event_time","source_time","received_at","event_type","event_code","attributes","collector_config_version","original_record_reference","process_guid","parent_process_guid"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "event_id": {"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "device_id": {"type":"string","minLength":1,"maxLength":256},
+    "manager_id": {"type":"string","minLength":1,"maxLength":128},
+    "source": {"const":"wazuh-windows"},
+    "channel": {"type":"string","minLength":1,"maxLength":256},
+    "source_event_id": {"type":["string","null"],"maxLength":128},
+    "source_generation": {"type":["string","null"],"maxLength":128},
+    "identity_quality": {"enum":["source-generation","record-reference"]},
+    "event_time": {"type":["string","null"],"maxLength":64},
+    "source_time": {"type":["string","null"],"maxLength":128},
+    "received_at": {"type":"string","maxLength":64},
+    "event_type": {"enum":["process_start","process_end","file_create","registry_change","network_connect","dns_query","collector_status","windows_event"]},
+    "event_code": {"type":"string","pattern":"^[0-9]{1,10}$"},
+    "attributes": {"type":"object","maxProperties":128,"additionalProperties":{"type":["string","number","boolean","null"],"maxLength":8192}},
+    "collector_config_version": {"type":["string","null"],"maxLength":128},
+    "original_record_reference": {"type":"string","minLength":1,"maxLength":512},
+    "process_guid": {"type":["string","null"],"maxLength":128},
+    "parent_process_guid": {"type":["string","null"],"maxLength":128}
+  }
+}

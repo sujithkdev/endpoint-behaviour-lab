@@ -1,0 +1,26 @@
+<Sysmon schemaversion="4.90">
+  <HashAlgorithms>sha256</HashAlgorithms>
+  <EventFiltering>
+    <RuleGroup name="Process lifecycle" groupRelation="or">
+      <ProcessCreate onmatch="exclude" />
+      <ProcessTerminate onmatch="exclude" />
+    </RuleGroup>
+    <RuleGroup name="Executable and startup file creation" groupRelation="or">
+      <FileCreate onmatch="include">
+        <TargetFilename condition="end with">.exe</TargetFilename>
+        <TargetFilename condition="contains">\Start Menu\Programs\Startup\</TargetFilename>
+        <TargetFilename condition="contains">\EndpointPhase1\</TargetFilename>
+      </FileCreate>
+    </RuleGroup>
+    <RuleGroup name="Startup registry changes" groupRelation="or">
+      <RegistryEvent onmatch="include">
+        <TargetObject condition="contains">\CurrentVersion\Run</TargetObject>
+      </RegistryEvent>
+    </RuleGroup>
+    <RuleGroup name="Disabled high volume optional sources" groupRelation="or">
+      <NetworkConnect onmatch="include" />
+      <DnsQuery onmatch="include" />
+      <ImageLoad onmatch="include" />
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

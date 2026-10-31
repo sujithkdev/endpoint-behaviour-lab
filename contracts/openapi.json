@@ -1,0 +1,227 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "VMP reconstruction development API",
+    "version": "0.1.0",
+    "description": "Read-only synthetic skeleton. This contract documents the new skeleton, not the original ManageEngine API. No production authentication is implemented."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:4100"
+    }
+  ],
+  "paths": {
+    "/health/live": {
+      "get": {
+        "summary": "Process liveness; explicitly reports demo mode and no persistence.",
+        "responses": {
+          "200": {
+            "description": "Development response; no production capability implied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/assets": {
+      "get": {
+        "summary": "Synthetic asset fixtures.",
+        "responses": {
+          "200": {
+            "description": "Development response; no production capability implied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/vulnerabilities": {
+      "get": {
+        "summary": "Synthetic vulnerability finding fixtures.",
+        "responses": {
+          "200": {
+            "description": "Development response; no production capability implied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dashboard": {
+      "get": {
+        "summary": "Counts derived from the same fixture repository.",
+        "responses": {
+          "200": {
+            "description": "Development response; no production capability implied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/modules": {
+      "get": {
+        "summary": "Module implementation status.",
+        "responses": {
+          "200": {
+            "description": "Development response; no production capability implied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/capabilities": {
+      "get": {
+        "summary": "Actual skeleton capabilities; no authentication or agent execution.",
+        "responses": {
+          "200": {
+            "description": "Development response; no production capability implied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/identity": {
+      "get": {
+        "summary": "Users, sessions, roles and resource scope.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/patches": {
+      "get": {
+        "summary": "Patch catalog, applicability, deployment and rollback.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/configurations": {
+      "get": {
+        "summary": "Misconfiguration rules, assessments and remediation plans.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/compliance": {
+      "get": {
+        "summary": "Policy definitions, evaluation and historical results.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/agents": {
+      "get": {
+        "summary": "Enrollment, heartbeat, inventory and typed command exchange.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/jobs": {
+      "get": {
+        "summary": "Durable jobs, leases, retry policy and cancellation.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/reports": {
+      "get": {
+        "summary": "Scoped reports, asynchronous exports and retention.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/integrations": {
+      "get": {
+        "summary": "Versioned content ingestion and external-system adapters.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/audit": {
+      "get": {
+        "summary": "Append-only records of access and state-changing decisions.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/settings": {
+      "get": {
+        "summary": "Product settings, secrets references and maintenance policy.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    },
+    "/api/v1/recovery": {
+      "get": {
+        "summary": "Backup manifests, restore rehearsals and migration history.",
+        "responses": {
+          "501": {
+            "description": "Not implemented in this skeleton"
+          }
+        }
+      }
+    }
+  }
+}

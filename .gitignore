@@ -1,0 +1,13 @@
+node_modules/
+.env
+var/
+coverage/
+*.dump
+*.log
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.evtx
+*.zip

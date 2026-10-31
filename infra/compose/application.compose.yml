@@ -1,0 +1,34 @@
+services:
+  database:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: endpoint
+      POSTGRES_DB: endpoint
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run bash scripts/kali-lab.sh init first}
+    volumes:
+      - endpoint-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U endpoint -d endpoint"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    mem_limit: 512m
+    logging:
+      driver: local
+      options: {max-size: "10m", max-file: "3"}
+  tool:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile
+      target: base
+    profiles: ["tools"]
+    environment:
+      DATABASE_URL: postgres://endpoint:${POSTGRES_PASSWORD}@database:5432/endpoint
+    volumes:
+      - ../../var:/data
+    depends_on:
+      database:
+        condition: service_healthy
+volumes:
+  endpoint-db:

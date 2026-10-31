@@ -1,0 +1,14 @@
+<!-- Merge these localfile entries into the enrolled agent's existing ossec_config.
+     Do not replace its client identity/connection settings or duplicate channels. -->
+<ossec_config>
+  <localfile>
+    <location>Microsoft-Windows-Sysmon/Operational</location>
+    <log_format>eventchannel</log_format>
+    <query>Event/System[EventID=1 or EventID=4 or EventID=5 or EventID=11 or EventID=12 or EventID=13 or EventID=14 or EventID=16 or EventID=255]</query>
+  </localfile>
+  <localfile>
+    <location>System</location>
+    <log_format>eventchannel</log_format>
+    <query>Event/System[EventID=7036 or EventID=7040 or EventID=7045]</query>
+  </localfile>
+</ossec_config>

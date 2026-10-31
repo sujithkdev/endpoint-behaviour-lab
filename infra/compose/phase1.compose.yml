@@ -1,0 +1,25 @@
+name: endpoint-phase1
+services:
+  manager:
+    image: wazuh/wazuh-manager:4.14.9
+    hostname: endpoint-phase1-manager
+    restart: unless-stopped
+    mem_limit: 2g
+    cpus: 2
+    ports:
+      - "${PHASE1_BIND_IP:-127.0.0.1}:1514:1514/tcp"
+    volumes:
+      - manager-etc:/var/ossec/etc
+      - manager-logs:/var/ossec/logs
+      - manager-queue:/var/ossec/queue
+      - ../../configs/wazuh/manager/phase1.conf:/wazuh-config-mount/etc/ossec.conf:ro
+      - ../../configs/wazuh/manager/filebeat.down:/etc/services.d/filebeat/down:ro
+    logging:
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "3"
+volumes:
+  manager-etc:
+  manager-logs:
+  manager-queue:
